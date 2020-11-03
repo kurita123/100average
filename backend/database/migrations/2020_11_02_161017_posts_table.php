@@ -18,7 +18,6 @@ class PostsTable extends Migration
         $table->unsignedInteger('user_id');
         $table->string('name');
         $table->string('comment');
-        $table->integer('classification');
         $table->string('img','200');
         });
     }
