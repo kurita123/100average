@@ -8,10 +8,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+Route::get('/product', [App\Http\Controllers\ProductController::class, 'index'])->name('product');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('login/twitter', [App\Http\Controllers\Auth\LoginController::class,'redirectToProvider'])->name('login.twitter');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('login/twitter/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleProviderCallback']);

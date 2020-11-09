@@ -19,18 +19,23 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
-        header {background-color:#FFFFEE;}
+        img.inrecipe{width:100%; display: block; margin: -20px auto; height: 300px; object-fit: cover;}
+        .color {background-color: #ffd78c; margin: 20px auto;}
+        .color2 {background-color: #ffd78c; margin: -25px 0px auto; text-align: center;}
     </style>
 </head>
 <style>
     .navbar {background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);}
+    .background {
+        background: radial-gradient(ellipse at center, rgba(96,171,248,1) 0%,rgba(155,201,247,1) 28%,rgba(155,201,247,1) 18%,rgb(255, 255, 255) 70%);
+    }
 </style>
 <body>
     <div id="app">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                <h1　style="font-family:serif;text-align:center;">100均オススメ商品</h1>
+                <h1　style="font-family:serif;">100均オススメ商品</h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -47,11 +52,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('新規登録') }}</a>
                                 </li>
                             @endif
                         @else
@@ -59,7 +64,7 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
-
+                                
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -70,17 +75,18 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                </div>
+                                </div>                           
                             </li>
                         @endguest
                     </ul>
+                    <img src="{{ Auth::user()->avatar }}" height="64" width="64" />
                 </div>
             </div>
         </nav>
-
         <main class="py-4">
             @yield('content')
         </main>
+        @yield('footer')
     </div>
 </body>
 </html>

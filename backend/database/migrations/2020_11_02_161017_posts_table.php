@@ -18,7 +18,8 @@ class PostsTable extends Migration
         $table->unsignedInteger('user_id');
         $table->string('name');
         $table->string('comment');
-        $table->string('img','200');
+        $table->string('img');
+        $table->timestamps();
         });
     }
 
