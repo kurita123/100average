@@ -16,6 +16,10 @@ services:
     build: ./infra/mysql
     volumes:
       - db-store:/var/lib/mysql
-
+  node:
+   image: node:12.8-alpine
+   volumes:
+     - ./src:/work
+   working_dir: /work
 volumes:
   db-store:

@@ -79,7 +79,6 @@
                             </li>
                         @endguest
                     </ul>
-                    <img src="{{ Auth::user()->avatar }}" height="64" width="64" />
                 </div>
             </div>
         </nav>

@@ -13,10 +13,10 @@
             <div class ="color">
                 <p style="font-size:1.5em;">{!! nl2br(e(str_limit($posts->name,$limit = 26, $end ='...'))) !!}</p>
                 <p>商品説明 : <p>{!! nl2br(e(str_limit($posts->comment,$limit = 40, $end ='...'))) !!}</p><br></p>
-                </div>
-                <img src="{{ asset('/storage/img/'.$posts->img)}}" alt="" class="inrecipe"><br><br>
+            </div>
+            <img src="{{ asset('/storage/img/'.$posts->img)}}" alt="" class="inrecipe"><br><br>
             <div class ="color2">
-                <form action="product" method="get">
+                <form action="product" method="post">
                     @csrf
                     <input type="hidden" name="id" value="{{$posts->id}}">
                     <input type="hidden" name="user_id" value="{{$posts->user_id}}">
@@ -25,9 +25,7 @@
             </div>
         </div>
         @endforeach
-        
     </div>
 </div>
 @endsection
-
 @include('layouts.footer')

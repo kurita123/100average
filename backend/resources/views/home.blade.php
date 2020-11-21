@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.top')
 
 @section('title','お得な商品発見')
 
@@ -16,7 +16,7 @@
                 </div>
                 <img src="{{ asset('/storage/img/'.$posts->img)}}" alt="" class="inrecipe"><br><br>
             <div class ="color2">
-                <form action="product" method="get">
+                <form action="product" method="post">
                     @csrf
                     <input type="hidden" name="id" value="{{$posts->id}}">
                     <input type="hidden" name="user_id" value="{{$posts->user_id}}">

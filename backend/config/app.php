@@ -176,6 +176,8 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Laravel\Socialite\SocialiteServiceProvider::class,
+        // TwitterOAuth
+        App\Providers\TwitterServiceProvider::class,
 
     ],
 
@@ -230,6 +232,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Socialite' => Laravel\Socialite\SocialiteServiceProvider::class,
+
+        // TwitterOAuthAliases
+        'Twitter' => App\Facades\Twitter::class,
 
     ],
 

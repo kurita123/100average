@@ -12,8 +12,8 @@ class PostController extends Controller
         $this->middleware('auth');
     }
 
-    public function post(Request $request)
+    public function index(Request $request)
     {
-        return view('post');
+        return view('post.post');
     }
 }
