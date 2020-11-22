@@ -12,7 +12,9 @@ Route::post('product', [App\Http\Controllers\ProductController::class, 'index'])
 
 Route::post('search', [App\Http\Controllers\SearchController::class, 'search']);
 
-Route::post('post', [App\Http\Controllers\PostController::class, 'index']);
+Route::get('post', [App\Http\Controllers\PostController::class, 'index'])->name('post');
+
+Route::post('postcomplete', [App\Http\Controllers\PostController::class, 'complete']);
 
 Route::get('login/twitter', [App\Http\Controllers\Auth\LoginController::class,'redirectToProvider'])->name('login.twitter');
 

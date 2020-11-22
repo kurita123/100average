@@ -23,6 +23,7 @@
         .color {background-color: #ffd78c; margin: 20px auto;}
         .color2 {background-color: #ffd78c; margin: -25px 0px auto; text-align: center;}
         img.inrecip{width:100%; display: block; margin: 0 auto; height:auto; object-fit: cover;}
+        #post-link {background-color:#00CC66;border-radius: 5px;padding-left: 1rem;padding-right: 1rem;}
     </style>
 </head>
 <style>
