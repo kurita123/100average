@@ -2,17 +2,22 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::get('/', [App\Http\Controllers\TopController::class, 'top'])->name('top');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::post('product', [App\Http\Controllers\ProductController::class, 'index'])->name('product');
+
+Route::post('search', [App\Http\Controllers\SearchController::class, 'search']);
+
+Route::get('post', [App\Http\Controllers\PostController::class, 'index'])->name('post');
+
+Route::post('postcomplete', [App\Http\Controllers\PostController::class, 'complete']);
+
+Route::get('login/twitter', [App\Http\Controllers\Auth\LoginController::class,'redirectToProvider'])->name('login.twitter');
+
+Route::get('login/twitter/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleProviderCallback']);
+
+Route::get('twitter',  [App\Http\Controllers\TwitterController::class, 'index']);
